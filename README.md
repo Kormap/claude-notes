@@ -1,4 +1,3 @@
-# claude-notes
 # 📘 CLAUDE Global Development Guide
 
 > 개인 개발 표준을 정의하는 `CLAUDE.md` 버전 관리 저장소  
@@ -26,19 +25,33 @@
 ---
 
 # 📂 Repository Structure
-
+```
 .
 ├── CLAUDE.md
-├── templates/
-│ ├── sql/
-│ ├── mybatis/
-│ ├── test/
-│ └── api-doc/
-├── prompts/
-├── infra-guides/
-└── performance/
+├── standards/              # 사고 기준 정의
+│   ├── infra.md
+│   ├── db.md
+│   ├── application.md
+│   └── performance.md
+│
+├── templates/              # 코드 생성 템플릿
+│   ├── sql/
+│   ├── mybatis/
+│   ├── test/
+│   └── api-doc/
+│
+├── prompts/                # 상황별 프롬프트
+│   ├── refactor.md
+│   ├── performance.md
+│   ├── query-review.md
+│   └── infra-review.md
+│
+├── generators/             # 추후 코드 자동화
+│
+└── ci/
+    └── prompt-lint.yml
 
-
+```
 ---
 
 # 🚀 활용 방식
@@ -49,6 +62,7 @@
 
 ```bash
 ln -s ~/claude-global/CLAUDE.md ./CLAUDE.md
+```
 
 ## 2️⃣ LLM 응답 품질 통제
 
@@ -74,23 +88,23 @@ ln -s ~/claude-global/CLAUDE.md ./CLAUDE.md
 
 ---
 
-# 🏗 운영 전략
+## 🏗 운영 전략
 
-## 🔹 인프라 관점
+### 🔹 인프라 관점
 
 - 네트워크 호출 최소화
 - 캐싱 전략 전제 설계
 - 수평 확장 가능한 구조 유지
 - 배치 전환 가능성 고려
 
-## 🔹 DB 관점
+### 🔹 DB 관점
 
 - 실행 계획 검토 필수
 - 인덱스 전략 우선 검토
 - 대량 데이터 시 Offset Pagination 지양
 - Count 쿼리 비용 고려
 
-## 🔹 애플리케이션 관점
+### 🔹 애플리케이션 관점
 
 - 불필요한 객체 생성 제거
 - Stream 남용 방지
@@ -99,7 +113,7 @@ ln -s ~/claude-global/CLAUDE.md ./CLAUDE.md
 
 ---
 
-# 📈 성장 목적
+## 📈 성장 목적
 
 - 3~5년차 이상 수준의 문제 해결 사고 체계 고도화
 - 운영 관점 개발 역량 강화
@@ -108,7 +122,7 @@ ln -s ~/claude-global/CLAUDE.md ./CLAUDE.md
 
 ---
 
-# 🔧 향후 발전 방향
+## 🔧 향후 발전 방향
 
 - Prompt Lint 규칙 정의
 - 응답 품질 테스트 자동화
@@ -118,7 +132,7 @@ ln -s ~/claude-global/CLAUDE.md ./CLAUDE.md
 
 ---
 
-# 💡 왜 Git으로 관리하는가?
+## 💡 왜 Git으로 관리하는가?
 
 - 사고 기준을 버전 관리
 - 설계 철학 히스토리 추적
